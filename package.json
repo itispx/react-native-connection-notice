@@ -4,9 +4,11 @@
   "scripts": {
     "start": "expo start --dev-client",
     "android": "expo run:android",
-    "ios": "expo run:ios"
+    "ios": "expo run:ios",
+    "build": "del ./dist/* && tsc"
   },
   "dependencies": {
+    "@react-native-community/netinfo": "^9.3.3",
     "expo": "~46.0.13",
     "expo-splash-screen": "~0.16.2",
     "expo-status-bar": "~1.4.0",
