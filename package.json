@@ -1,12 +1,26 @@
 {
   "name": "react-native-offline-indicator",
   "version": "1.0.0",
+  "main": "dist/OfflineIndicator",
   "scripts": {
     "start": "expo start --dev-client",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "build": "tsc"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itispx/react-native-offline-indicator"
+  },
+  "bugs": {
+    "url": "https://github.com/itispx/react-native-offline-indicator/issues"
+  },
+  "homepage": "https://github.com/itispx/react-native-offline-indicator",
+  "author": "Px",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@react-native-community/netinfo": "^9.3.3",
     "expo": "~46.0.13",
@@ -25,6 +39,12 @@
     "@types/react-test-renderer": "^18.0.0",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"
+  },
+  "peerDependencies": {
+    "expo": "*",
+    "react": "*",
+    "react-native": "*",
+    "@react-native-community/netinfo": "*"
   },
   "private": true
 }
