@@ -10,12 +10,11 @@
     "isolatedModules": true,
     "jsx": "react-native",
     "lib": ["es2017"],
-    "types": ["react-native", "jest"],
+    "types": ["react-native"],
     "moduleResolution": "node",
     "noEmit": false,
     "strict": true
   },
-  "extends": "expo/tsconfig.base",
-  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"],
+  "exclude": ["node_modules"],
   "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }
