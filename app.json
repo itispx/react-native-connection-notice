@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native-offline-indicator",
-    "slug": "react-native-offline-indicator",
+    "name": "react-native-connection-indicator",
+    "slug": "react-native-connection-indicator",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,7 +25,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.itspx.reactnativeofflineindicator"
+      "package": "com.itspx.reactnativeconnectionindicator"
     },
     "web": {
       "favicon": "./assets/favicon.png"

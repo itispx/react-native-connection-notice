@@ -1,7 +1,7 @@
 {
-  "name": "react-native-offline-indicator",
+  "name": "react-native-connection-indicator",
   "version": "1.0.0",
-  "main": "dist/OfflineIndicator",
+  "main": "dist/ConnectionIndicator",
   "scripts": {
     "start": "expo start --dev-client",
     "android": "expo run:android",
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/itispx/react-native-offline-indicator"
+    "url": "https://github.com/itispx/react-native-connection-indicator"
   },
   "bugs": {
-    "url": "https://github.com/itispx/react-native-offline-indicator/issues"
+    "url": "https://github.com/itispx/react-native-connection-indicator/issues"
   },
-  "homepage": "https://github.com/itispx/react-native-offline-indicator",
+  "homepage": "https://github.com/itispx/react-native-connection-indicator",
   "author": "Px",
   "license": "MIT",
   "files": [
