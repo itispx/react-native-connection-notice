@@ -1,10 +1,14 @@
 {
   "name": "react-native-connection-indicator",
   "version": "1.0.0",
-  "main": "dist/OffLineIndicator.js",
-  "scripts": {
-    "build": "tsc"
-  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "author": "Px",
+  "license": "MIT",
+  "homepage": "https://github.com/itispx/react-native-connection-indicator",
   "repository": {
     "type": "git",
     "url": "https://github.com/itispx/react-native-connection-indicator"
@@ -12,12 +16,11 @@
   "bugs": {
     "url": "https://github.com/itispx/react-native-connection-indicator/issues"
   },
-  "homepage": "https://github.com/itispx/react-native-connection-indicator",
-  "author": "Px",
-  "license": "MIT",
-  "files": [
-    "dist"
-  ],
+  "scripts": {
+    "build": "del dist && npm run build:cjs && npm run build:esm",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
+  },
   "dependencies": {
     "@react-native-community/netinfo": "^9.3.3",
     "react": "18.0.0",

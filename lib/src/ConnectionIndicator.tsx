@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import {
   StyleSheet,
-  View,
   Text,
   Animated,
   Dimensions,
@@ -14,8 +13,7 @@ import { useNetInfo } from "@react-native-community/netinfo";
 
 const width = Dimensions.get("screen").width;
 
-interface ConnectionIndicatorProps {
-  isConnected: boolean;
+interface IConnectionIndicatorProps {
   style?: StyleProp<ViewStyle>;
   styleText?: StyleProp<TextStyle>;
   offlineColor?: string;
@@ -25,8 +23,7 @@ interface ConnectionIndicatorProps {
   height?: number;
 }
 
-const ConnectionIndicator: React.FC<ConnectionIndicatorProps> = ({
-  isConnected,
+const ConnectionIndicator: React.FC<IConnectionIndicatorProps> = ({
   style,
   styleText,
   offlineColor = "red",
@@ -35,7 +32,7 @@ const ConnectionIndicator: React.FC<ConnectionIndicatorProps> = ({
   onlineText = "Connected",
   height = 30,
 }) => {
-  // const isConnected = useNetInfo().isConnected;
+  const isConnected = useNetInfo().isConnected;
 
   const translateY = useRef(new Animated.Value(-31)).current;
 

@@ -1,23 +1,20 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "CommonJS",
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "declaration": true,
-    "sourceMap": true,
     "allowSyntheticDefaultImports": true,
+    "declaration": true,
     "esModuleInterop": true,
-    "isolatedModules": true,
     "jsx": "react-native",
-    "lib": ["es2017"],
-    "types": ["react-native"],
+    "lib": ["es5", "es2015", "es2016", "dom", "esnext"],
+    "types": ["react-native", "node"],
+    "module": "es2015",
     "moduleResolution": "node",
-    "removeComments": true,
-    "noEmit": false,
-    "allowJs": true,
-    "strict": true
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "outDir": "dist/esm",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6"
   },
   "exclude": ["node_modules"],
-  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
 }
