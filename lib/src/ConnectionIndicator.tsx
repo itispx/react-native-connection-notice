@@ -14,9 +14,8 @@ import { useNetInfo } from "@react-native-community/netinfo";
 
 const width = Dimensions.get("screen").width;
 
-interface Props {
+interface ConnectionIndicatorProps {
   isConnected: boolean;
-
   style?: StyleProp<ViewStyle>;
   styleText?: StyleProp<TextStyle>;
   offlineColor?: string;
@@ -26,7 +25,7 @@ interface Props {
   height?: number;
 }
 
-const OfflineIndicator: React.FC<Props> = ({
+const ConnectionIndicator: React.FC<ConnectionIndicatorProps> = ({
   isConnected,
   style,
   styleText,
@@ -94,4 +93,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OfflineIndicator;
+export default ConnectionIndicator;

@@ -1,23 +1,17 @@
+import React from "react";
+import { View, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text } from "react-native";
 
-import OffLineIndicator from "react-native-connection-indicator";
+import ConnectionIndicator from "react-native-connection-indicator";
 
-export default function App() {
+const App: React.FC = () => {
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1, alignItems: "center" }}>
       <StatusBar style="auto" />
       <Text>Hi</Text>
-      <OffLineIndicator />
+      <ConnectionIndicator />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default App;
