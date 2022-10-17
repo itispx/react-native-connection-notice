@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import ConnectionIndicator from "react-native-connection-indicator";
+// import ConnectionIndicator from "../lib/src";
 
 const App: React.FC = () => {
   return (

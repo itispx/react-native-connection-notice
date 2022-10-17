@@ -1,1 +1,3 @@
-export * from "./ConnectionIndicator";
+import ConnectionIndicator from "./ConnectionIndicator";
+
+export default ConnectionIndicator;
