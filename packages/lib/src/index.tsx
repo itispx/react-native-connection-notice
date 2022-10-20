@@ -1,15 +1,16 @@
 import React from "react";
 
-import { useNetInfo } from "@react-native-community/netinfo";
+import ConnectionIndicator from "./components/ConnectionIndicator";
 
-import ConnectionIndicator from "./ConnectionIndicator";
+import useNetworkInfo from "./hooks/useNetworkInfo";
+import useBluetoothInfo from "./hooks/useBluetoothInfo";
 
-import { IBaseProps } from "./types";
+import { IBaseProps } from "./types/types";
 
 const withComponent: React.FC<IBaseProps> = (props) => {
-  const isInternetConnected = useNetInfo().isConnected ?? false;
+  const isInternetConnected = useNetworkInfo();
 
-  const isBluetoothConnected = true;
+  const isBluetoothConnected = useBluetoothInfo();
 
   return (
     <ConnectionIndicator
