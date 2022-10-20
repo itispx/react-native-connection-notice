@@ -2,13 +2,13 @@ import React from "react";
 import { View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-import ConnectionIndicator from "react-native-connection-indicator";
+import ConnectionNotice from "react-native-connection-notice";
 
 const App = () => {
   return (
     <View style={{ flex: 1, alignItems: "center" }}>
       <StatusBar style="auto" />
-      <ConnectionIndicator />
+      <ConnectionNotice />
     </View>
   );
 };
