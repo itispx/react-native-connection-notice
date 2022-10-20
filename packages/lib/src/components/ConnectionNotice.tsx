@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { StyleSheet, Text, Animated, Dimensions, StatusBar } from "react-native";
 
-import { IConnectionIndicatorProps } from "../types/types";
+import { IConnectionNoticeProps } from "../types/types";
 
 const width = Dimensions.get("screen").width;
 
-const ConnectionIndicator: React.FC<IConnectionIndicatorProps> = ({
+const ConnectionNotice: React.FC<IConnectionNoticeProps> = ({
   style,
   styleText,
   height: heightProp = StatusBar.currentHeight ?? 40,
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ConnectionIndicator;
+export default ConnectionNotice;

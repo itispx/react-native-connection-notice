@@ -11,6 +11,6 @@ export interface IBaseProps {
   slideDuration?: number;
 }
 
-export interface IConnectionIndicatorProps extends IBaseProps {
+export interface IConnectionNoticeProps extends IBaseProps {
   isConnected: boolean;
 }

@@ -1,5 +1,5 @@
 {
-  "name": "react-native-connection-indicator",
+  "name": "react-native-connection-notice",
   "version": "1.0.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -8,13 +8,13 @@
   ],
   "author": "Px",
   "license": "MIT",
-  "homepage": "https://github.com/itispx/react-native-connection-indicator",
+  "homepage": "https://github.com/itispx/react-native-connection-notice",
   "repository": {
     "type": "git",
-    "url": "https://github.com/itispx/react-native-connection-indicator"
+    "url": "https://github.com/itispx/react-native-connection-notice"
   },
   "bugs": {
-    "url": "https://github.com/itispx/react-native-connection-indicator/issues"
+    "url": "https://github.com/itispx/react-native-connection-notice/issues"
   },
   "scripts": {
     "build": "del dist && npm run build:esm && npm run build:cjs",
