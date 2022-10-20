@@ -1,75 +1,135 @@
-import React, { useEffect, useRef } from "react";
-import {
-  StyleSheet,
-  Text,
-  Animated,
-  Dimensions,
-  StyleProp,
-  ViewStyle,
-  TextStyle,
-} from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import { StyleSheet, Text, Animated, Dimensions, StatusBar } from "react-native";
 
-import { useNetInfo } from "@react-native-community/netinfo";
+import { IConnectionIndicatorProps } from "./types";
 
 const width = Dimensions.get("screen").width;
-
-interface IConnectionIndicatorProps {
-  style?: StyleProp<ViewStyle>;
-  styleText?: StyleProp<TextStyle>;
-  offlineColor?: string;
-  offlineText?: string;
-  onlineColor?: string;
-  onlineText?: string;
-  height?: number;
-}
 
 const ConnectionIndicator: React.FC<IConnectionIndicatorProps> = ({
   style,
   styleText,
+  type,
+  height: heightProp = StatusBar.currentHeight ?? 40,
   offlineColor = "red",
   offlineText = "No internet connection",
   onlineColor = "green",
   onlineText = "Connected",
-  height = 30,
+  bluetoothColor = "blue",
+  bluetoothText = "Connected to bluetooth",
+  slideDuration = 200,
+  keepBluetooth = false,
+  isConnected,
 }) => {
-  const isConnected = useNetInfo().isConnected;
+  const translateY = useRef(new Animated.Value(-heightProp)).current;
 
-  const translateY = useRef(new Animated.Value(-31)).current;
+  const [backgroundColor, setBackgroundColor] = useState<string>();
+  const [textDisplay, setTextDisplay] = useState<string>();
 
-  useEffect(() => {
-    if (isConnected) {
-      Animated.sequence([
-        Animated.delay(500),
+  function foundInternetConnection(): void {
+    setBackgroundColor(onlineColor);
+    setTextDisplay(onlineText);
+
+    Animated.sequence([
+      Animated.delay(500),
+      Animated.parallel([
         Animated.timing(translateY, {
-          toValue: -31,
-          duration: 200,
+          toValue: -heightProp,
+          duration: slideDuration,
+          useNativeDriver: true,
+        }),
+      ]),
+    ]).start();
+  }
+
+  function lostInternetConnection(): void {
+    setBackgroundColor(offlineColor);
+    setTextDisplay(offlineText);
+
+    Animated.parallel([
+      Animated.timing(translateY, {
+        toValue: 0,
+        duration: slideDuration,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }
+
+  function foundBluetoothConnection(): void {
+    setBackgroundColor(bluetoothColor);
+    setTextDisplay(bluetoothText);
+
+    if (typeof keepBluetooth === "boolean") {
+      if (keepBluetooth) {
+        Animated.timing(translateY, {
+          toValue: 0,
+          duration: slideDuration,
+          useNativeDriver: true,
+        }).start();
+      } else {
+        Animated.sequence([
+          Animated.timing(translateY, {
+            toValue: 0,
+            duration: slideDuration,
+            useNativeDriver: true,
+          }),
+          Animated.delay(500),
+          Animated.timing(translateY, {
+            toValue: -heightProp,
+            duration: slideDuration,
+            useNativeDriver: true,
+          }),
+        ]).start();
+      }
+    } else if (typeof keepBluetooth === "number") {
+      Animated.sequence([
+        Animated.timing(translateY, {
+          toValue: 0,
+          duration: slideDuration,
+          useNativeDriver: true,
+        }),
+        Animated.delay(keepBluetooth),
+        Animated.timing(translateY, {
+          toValue: -heightProp,
+          duration: slideDuration,
           useNativeDriver: true,
         }),
       ]).start();
-    } else {
-      Animated.timing(translateY, {
-        toValue: 0,
-        duration: 200,
-        useNativeDriver: true,
-      }).start();
     }
-  }, [isConnected]);
+  }
+
+  function lostBluetoothConnection(): void {
+    Animated.timing(translateY, {
+      toValue: -heightProp,
+      duration: slideDuration,
+      useNativeDriver: true,
+    }).start();
+  }
+
+  useEffect(() => {
+    if (type === "internet") {
+      if (isConnected) {
+        foundInternetConnection();
+      } else {
+        lostInternetConnection();
+      }
+    } else if (type === "bluetooth") {
+      if (isConnected) {
+        foundBluetoothConnection();
+      } else {
+        lostBluetoothConnection();
+      }
+    }
+  }, [isConnected, type, keepBluetooth]);
 
   return (
     <Animated.View
       style={[
         styles.container,
-        {
-          height,
-          transform: [{ translateY }],
-          backgroundColor: isConnected ? onlineColor : offlineColor,
-        },
+        { height: heightProp, transform: [{ translateY }], backgroundColor },
         style,
       ]}
     >
-      <Text style={[styles.indicatorText, styleText]}>
-        {isConnected ? onlineText : offlineText}
-      </Text>
+      <Text style={[styles.indicatorText, styleText]}>{textDisplay}</Text>
     </Animated.View>
   );
 };
