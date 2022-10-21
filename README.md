@@ -10,7 +10,7 @@ npm install react-native-connection-notice
 
 # Preview
 
-![App preview](example/preview.gif)
+<img src="/example/preview.gif" height="250"/>
 
 # Usage
 
