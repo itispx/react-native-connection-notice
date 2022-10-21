@@ -1,6 +1,6 @@
 {
   "name": "react-native-connection-notice",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "📶 | Connection notice for React Native",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
