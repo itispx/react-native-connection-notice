@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-import ConnectionNotice from "react-native-connection-notice";
+import ConnectionNotice, { useNetworkInfo } from "react-native-connection-notice";
 
 const App = () => {
   return (
