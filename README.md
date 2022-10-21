@@ -10,7 +10,7 @@ npm install react-native-connection-notice
 
 # Preview
 
-![App preview](packages/lib/example/preview.gif)
+![App preview](example/preview.gif)
 
 # Usage
 
