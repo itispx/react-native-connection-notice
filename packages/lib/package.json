@@ -1,6 +1,6 @@
 {
   "name": "react-native-connection-notice",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "📶 | Connection notice for React Native",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -30,8 +30,10 @@
     "build:esm": "tsc",
     "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
   },
+  "dependencies": {
+    "@react-native-community/netinfo": "^9.3.5"
+  },
   "peerDependencies": {
-    "@react-native-community/netinfo": "*",
     "react": "*",
     "react-native": "*"
   },
