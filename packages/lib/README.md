@@ -8,6 +8,26 @@ A React Native component that gives a notice every time the user internet connec
 npm install react-native-connection-notice
 ```
 
+# Dependencies
+
+You also need to install `@react-native-community/netinfo`.
+
+<br/>
+
+If you have a Expo managed project, in your project directory, run:
+
+```
+npx expo install @react-native-community/netinfo
+```
+
+If you have a bare React Native project, in your project directory, run:
+
+```
+npm install --save @react-native-community/netinfo
+```
+
+If you encounter any problems with linking follow [these additional installation instructions.](https://github.com/react-native-netinfo/react-native-netinfo#getting-started)
+
 # Preview
 
 ![Lib Preview](/example/preview.gif)
